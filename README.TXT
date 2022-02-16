@@ -1,7 +1,10 @@
 Persistent Hashmap and Vector in C
 ======
 
-This is an implementation of persistent hashmaps and vectors like in Clojure, but implemented in C.
+Depends on the Boehm garbage collector
+
+======
+This is an implementation of Clojure-style persistent hashmaps and vectors implemented in C.
 For an explanation see
 
 http://blog.higher-order.net/2009/09/08/understanding-clojures-persistenthashmap-deftwice and
