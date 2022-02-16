@@ -191,6 +191,51 @@ void test_vector_iterator(void) {
   TEST_ASSERT_EQUAL_INT(TEST_ITERATIONS, i);
 }
 
+void test_vector_readme(void)
+{
+  Vector *v = vector_make();
+
+  /* add items at the end of the vector */
+  v = vector_push(v, "item0");
+  v = vector_push(v, "item1");
+  v = vector_push(v, "item2");
+  v = vector_push(v, "item3");
+  printf("count is: %i\n", vector_count(v));
+  //=> 4
+  TEST_ASSERT_EQUAL_INT(4, vector_count(v));
+
+  /* save a reference to the original vector */
+  Vector *v_original = v;
+
+  /* remove an item from the end */
+  v = vector_pop(v);
+  printf("count is: %i\n", vector_count(v));
+  //=> 3;
+  TEST_ASSERT_EQUAL_INT(3, vector_count(v));
+
+  /* get the value at index 1 */
+  char* item1 = vector_get(v, 1);
+  printf("item at index 1 is: %s\n", item1);
+  //=> "item1"
+  TEST_ASSERT_EQUAL_STRING("item1", item1);
+
+  /* change the value at index 1 */
+  v = vector_set(v, 1, "item1_updated");
+  item1 = vector_get(v, 1);
+  printf("item at index 1 is: %s\n", item1);
+  //=> "item1_updated"
+  TEST_ASSERT_EQUAL_STRING("item1_updated", item1);
+
+  /* original vector is unaffected */
+  printf("original count is: %i\n", vector_count(v_original));
+  //=> 4
+  TEST_ASSERT_EQUAL_INT(4, vector_count(v_original));
+
+  item1 = vector_get(v_original, 1);
+  printf("item at index 1 is: %s\n", item1);
+  //=> "item1"
+  TEST_ASSERT_EQUAL_STRING("item1", item1);
+}
 
 /* run tests */
 int main(void)
@@ -205,6 +250,7 @@ int main(void)
   RUN_TEST(test_vector_empty);
   RUN_TEST(test_vector_count);
   RUN_TEST(test_vector_iterator);
+  RUN_TEST(test_vector_readme);
 
   return UNITY_END();
 }
