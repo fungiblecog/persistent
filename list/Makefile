@@ -3,7 +3,7 @@
 .PHONY: lib
 
 # unity test framework source folder
-PATHU := ../unity/src/
+PATHU := ../Unity/src/
 # project source folder(s) (space separated)
 PATHS := ./src/ ../iterator/
 # project test source folder

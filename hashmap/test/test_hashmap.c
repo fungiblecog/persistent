@@ -3,7 +3,7 @@
 #include <string.h>
 #include <gc.h>
 
-#include "../../unity/src/unity.h"
+#include "../../Unity/src/unity.h"
 #include "../src/hashmap.h"
 
 /* included for time and rand functions */
